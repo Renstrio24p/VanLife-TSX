@@ -37,7 +37,13 @@ module.exports = (argv: moduleProps) => {
     open: true,
     hot: !isProduction,
     liveReload: !isProduction,
-    historyApiFallback: true,
+    historyApiFallback: {
+      index: '/',
+      rewrites: [
+        { from: /^\/index.html$/, to: '/index.html' },
+        { from: /./, to: '/index.html' },
+      ],
+    },
   };
 
   return {
@@ -56,7 +62,6 @@ module.exports = (argv: moduleProps) => {
     },
     module: {
       rules: [
-        
         // TypeScript rule
         {
           test: /\.(ts|tsx)$/,
@@ -171,7 +176,6 @@ module.exports = (argv: moduleProps) => {
       type: 'filesystem',
     },
     stats: 'errors-warnings',
-    // Add source maps for better debugging in development mode
     devtool: isProduction ? 'source-map' : 'eval-source-map',
   };
 };
