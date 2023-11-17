@@ -1,5 +1,7 @@
+import { ReactInstance, ReactNode } from "react";
+
 export type VanTypes = {
-    id: number | string,
+    id:  ReactNode | ReactInstance,
     name: string,
     imageUrl: string,
     description: string,
@@ -16,3 +18,9 @@ export type StyleTypes = {
 }
 
 export type ContextType = { currentVan: VanTypes | null };
+
+export type TypeParamsVan =  "simple" | "luxury" | "rugged" | null
+
+export type TypeLiteral = 'type'
+
+

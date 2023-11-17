@@ -19,3 +19,43 @@ It's the "default route" we want to render when the path
 of the parent route matches. It gives us a chance to render
 an element inside the parent's <Outlet /> at the same path
 as the parent route.
+
+TYPES:
+
+string: only accepts string characters
+
+number: only accepts number type : number , float , decimals
+
+boolean: only accepts boolean type: true or false
+
+string[]: only accepts array of strings only
+
+number[]: only accepts array of numbers only
+
+boolean[]: only accepts array of booleans only
+
+(string | number) : only accept either string or number TYPES
+
+(string | boolean) : only accept either string or boolean TYPES
+
+never: is a type used for values that never occur in regular program flow. It's typically applied to functions throwing 
+                    errors or running infinite loops:
+
+undefined: is a type and a value representing the absence of assigned values or the return value of functions with no explicit return.
+ It can be assigned to variables of any type.
+
+null : only Define a variable if has no value by default
+
+interface: defines the structure of an object. It specifies the types of its properties,
+           allowing you to enforce a consistent shape.
+
+
+HTML TYPES
+
+HTMLElement: Define as an HTML element <*>
+HTMLDivElement: Define as an HTML Div elements <div>
+HTMLUlElement: Define as an HTML Un ordered list element <ul>
+HTMLOlElement: Define as an HTML ordered list element <ol>
+HTMLLiElement: Define as an HTML List element <li>
+HTMLAnchorElement: Define as an HTML Anchor tag element <a>
+HTMLImageElement: Define as an HTML Image element <img>

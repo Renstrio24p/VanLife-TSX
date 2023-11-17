@@ -1,5 +1,7 @@
 import { lazy } from "react";
 import {createBrowserRouter} from "react-router-dom";
+
+const NotFound = lazy(()=> import("../pages/NotFound"));
 const Reviews = lazy(()=> import("../pages/host/Reviews"));
 const Income = lazy(()=> import("../pages/host/Income"));
 const Dashboard = lazy(()=> import("../pages/host/Dashboard"));
@@ -90,6 +92,10 @@ export const reactRoutes = createBrowserRouter([
           }
         ]
       },
+      {
+        path: "*",
+        element: <NotFound />
+      }
     ]
   }
 ]);

@@ -1,7 +1,6 @@
 import { createServer, Model } from "miragejs"
 
 
-
 createServer({
     models: {
         vans: Model,
@@ -19,18 +18,22 @@ createServer({
     routes() {
         this.namespace = "api"
         this.logging = false
+        this.timing = 2000
 
-        this.get("/vans", (schema: any) => {
+        this.get("/vans", (schema: any, request) => {
+            // return new Response(400, {}, {error: "Error fetching data"})
+            {request && request}
             return schema.vans.all()
         })
-        
+
         this.get("/vans/:id", (schema: any, request) => {
             const id = request.params.id
             return schema.vans.find(id)
         })
 
-        this.get("/host/vans", (schema: any) => {
+        this.get("/host/vans", (schema: any, request) => {
             // Hard-code the hostId for now
+            {request && request}
             return schema.vans.where({ hostId: "123" })
         })
 
