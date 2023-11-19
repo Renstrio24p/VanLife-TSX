@@ -1,11 +1,16 @@
-import { CSSProperties, useEffect, useState } from "react"
-import { useParams, Link, Outlet } from "react-router-dom"
-import { StyleTypes, VanTypes } from "../../types/types"
-import { NavLink } from "react-router-dom"
+import { CSSProperties } from "react"
+import { Link, Outlet, useLoaderData, NavLink} from "react-router-dom"
+import { ContextType, ParamTypes, StyleTypes, VanTypes } from "../../types/types"
+import { getHostVans } from "../../api"
+import { requireAuth } from "../../../../auth/Utils"
+
+export async function loader({ params }: ParamTypes){
+    await requireAuth()
+    return getHostVans(params.id)
+}
 
 export default function HostVanDetail() {
-    const { id } = useParams()
-    const [currentVan, setCurrentVan] = useState<VanTypes | null>(null)
+    const currentVan = useLoaderData() as VanTypes
 
     const activeStyles: StyleTypes = {
         fontWeight: "bold",
@@ -17,13 +22,6 @@ export default function HostVanDetail() {
         return isActive ? activeStyles : undefined;
     };
 
-    type ContextType = { currentVan: VanTypes | null };
-
-    useEffect(() => {
-        fetch(`/api/host/vans/${id}`)
-            .then(res => res.json())
-            .then(data => setCurrentVan(data.vans))
-    }, [])
 
     if (!currentVan) {
         return <h1>Loading...</h1>

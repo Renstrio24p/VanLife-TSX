@@ -1,4 +1,5 @@
-import { ReactInstance, ReactNode } from "react";
+import { FormEvent, ReactInstance, ReactNode } from "react";
+import { ErrorResponse } from "react-router-dom";
 
 export type VanTypes = {
     id:  ReactNode | ReactInstance,
@@ -17,10 +18,27 @@ export type StyleTypes = {
     isActive?: boolean,
 }
 
-export type ContextType = { currentVan: VanTypes | null };
+export type ContextType = { currentVan: VanTypes | null }
 
 export type TypeParamsVan =  "simple" | "luxury" | "rugged" | null
 
 export type TypeLiteral = 'type'
 
+export interface RouteError extends ErrorResponse {
+    message: string
+  }
 
+  export interface EventAuth extends FormEvent<HTMLFormElement> {
+    target: HTMLFormElement & {
+      email: HTMLInputElement
+      password: HTMLInputElement
+    }
+  }
+
+  export type ParamTypes = {
+    params: {
+      id?: number
+    }
+  }
+
+  export type LoginStrictType = boolean

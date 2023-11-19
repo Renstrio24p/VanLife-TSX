@@ -4,6 +4,6 @@ import { reactRoutes } from "./components/routes/router";
 
 export default function Start() {
   return (
-    <RouterProvider router={reactRoutes} />
+      <RouterProvider router={reactRoutes} />
   );
 }
