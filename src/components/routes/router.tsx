@@ -7,7 +7,6 @@ const Income = lazy(() => import("../pages/host/Income"));
 const Dashboard = lazy(() => import("../pages/host/Dashboard"));
 const HostVans = lazy(() => import("../pages/host/HostVans"));
 import { loader as HostVansLoader } from "../pages/host/HostVans";
-const HostVanDetails = lazy(() => import("../pages/host/HostVanDetails"));
 import HostVanDetail, { loader as HostVansDetailLoader } from "../pages/host/HostVanDetails";
 const HostVanPricing = lazy(() => import("../pages/host/HostVanPricing"));
 const HostVanPhotos = lazy(() => import("../pages/host/HostVanPhotos"));
