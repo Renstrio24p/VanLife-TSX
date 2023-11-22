@@ -58,15 +58,15 @@ commands available
 
 update to latest Dependencies on package.json - when notification pops out just click "Overwrite" to save the latest dependencies
 
-    $ npm run update
+    $ npm run update or yarn update
 
 Building your changes
      
-     $ npm run build
+     $ npm run build or yarn build
 
 Start your React Server
     
-     $ npm start
+     $ npm start or yarn start
 
 To run and monitor your changes while coding, use "Live server extension"
 
