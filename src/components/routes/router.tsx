@@ -20,8 +20,9 @@ const Vans = lazy(() => import('../pages/Vans'));
 import { loader as VansLoader } from "../pages/Vans";
 import { loader as VanDetailLoader } from "../pages/VanDetail";
 import Error from "../pages/Error";
-import Login from "../pages/Login";
+import Login, { loader as LoginLoader } from "../pages/Login";
 import { requireAuth } from "../../../auth/Utils";
+import { loader as DashboardLoader} from "../pages/host/Dashboard";
 
 const VanDetail = lazy(() => import('../pages/VanDetail'));
 
@@ -32,6 +33,7 @@ export const reactRoutes = createBrowserRouter(createRoutesFromElements(
     <Route
       path="login"
       element={<Login />}
+      loader={LoginLoader}
     />
     <Route
       path="vans"
@@ -44,16 +46,12 @@ export const reactRoutes = createBrowserRouter(createRoutesFromElements(
       element={<VanDetail />} 
       loader={VanDetailLoader}
     />
-    {/**
-     * Challenge:
-     * Include the `await requireAuth()` everywhere it's needed!
-     */}
-
+  
     <Route path="host" element={<HostLayout />}>
       <Route
         index
         element={<Dashboard />}
-        loader={async ({request}) => await requireAuth({request})}
+        loader={DashboardLoader}
       />
       <Route
         path="income"
@@ -95,3 +93,31 @@ export const reactRoutes = createBrowserRouter(createRoutesFromElements(
     <Route path="*" element={<NotFound />} />
   </Route>
 ))
+
+createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+        loader: LoginLoader
+      },
+      {
+        path: 'vans',
+        element: <Vans />,
+        errorElement: <Error />,
+        loader: VansLoader,
+        children: [
+          {
+            path: ':id',
+            element: <VanDetail />,
+            loader: VanDetailLoader
+          }
+        ]
+      },
+    
+    ]
+  }
+])

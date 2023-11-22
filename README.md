@@ -76,7 +76,7 @@ To run your React Server with "Live Server Extension"
 
 right click your "index.html" file and Open with Live server then run this command. this will work when publicPath: '/' is not enabled.
 
-locate the "Start.jsx" and start your coding with react.
+ "Start.tsx" and start your coding with react.
 
      I hope you like my work for this template.
      - Waren Gador
