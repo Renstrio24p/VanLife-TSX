@@ -1,7 +1,11 @@
 import { NavLink, Link} from "react-router-dom";
-import { AvatarImg } from "./Images";
+import { images } from "./Images";
 
 export default function Header() {
+
+  function fakeLogOut() {
+    localStorage.removeItem("loggedIn")
+  }
 
   return (
     <header>
@@ -10,12 +14,14 @@ export default function Header() {
           <NavLink to="/host" className={({isActive}) => isActive ? "my-link" : "" }>Host</NavLink>
           <NavLink to="/about" className={({isActive}) => isActive ? "my-link" : "" }>About</NavLink>
           <NavLink to="/vans" className={({isActive}) => isActive ? "my-link" : "" }>Vans</NavLink>
-          <Link to="login" className="login-link">
-                    <img 
-                        src={AvatarImg} 
-                        className="login-icon"
-                    />
-          </Link>
+          { localStorage.getItem('loggedIn') ? <button className="logout-btn" onClick={fakeLogOut}>Log out</button> : 
+            <Link to="login" className="login-link">
+            <img 
+                src={images.AvatarImg} 
+                className="login-icon"
+            />
+            </Link>
+          }
         </nav>
       </header>
   )

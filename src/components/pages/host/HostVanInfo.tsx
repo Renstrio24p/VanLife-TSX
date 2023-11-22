@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom"
-import { ContextType } from "../../types/types"
+import { ContextType } from "../../../types/types"
 
 export default function HostVanInfo() {
 

@@ -15,7 +15,8 @@
     "resolveJsonModule": true,
     "isolatedModules": false,
     "sourceRoot": "**/*",
-    "forceConsistentCasingInFileNames": false 
+    "forceConsistentCasingInFileNames": false,
+    "types": ["linkify-it","node","react","react-router-dom","react-dom"] 
   },
   "exclude": ["node_modules"]
 }

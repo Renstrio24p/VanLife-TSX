@@ -1,14 +1,22 @@
+import { ErrorResponse } from "@remix-run/router";
 import { FormEvent, ReactInstance, ReactNode } from "react";
-import { ErrorResponse } from "react-router-dom";
+
+export type ImagesStrictTypes = {
+
+}
 
 export type VanTypes = {
-    id:  ReactNode | ReactInstance,
+    id:  ReactNode | ReactInstance  ,
     name: string,
     imageUrl: string,
     description: string,
     price: number, 
     type: string,
     hostId?: string | number,
+    vans : {
+       vans: VanTypes[]
+    }
+    all: VanTypes[]
 }
 
 export type StyleTypes = {
@@ -37,8 +45,9 @@ export interface RouteError extends ErrorResponse {
 
   export type ParamTypes = {
     params: {
-      id?: number
-    }
+      id?: string | null
+    },
+    request: Request
   }
 
   export type LoginStrictType = boolean

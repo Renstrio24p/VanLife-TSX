@@ -1,12 +1,12 @@
 import { CSSProperties } from "react"
 import { Link, Outlet, useLoaderData, NavLink} from "react-router-dom"
-import { ContextType, ParamTypes, StyleTypes, VanTypes } from "../../types/types"
-import { getHostVans } from "../../api"
+import { ContextType, ParamTypes, StyleTypes, VanTypes } from "../../../types/types"
+import { getVan } from "../../api"
 import { requireAuth } from "../../../../auth/Utils"
 
-export async function loader({ params }: ParamTypes){
-    await requireAuth()
-    return getHostVans(params.id)
+export async function loader({ params,request }: ParamTypes){
+    await requireAuth({request})
+    return getVan(params.id!)
 }
 
 export default function HostVanDetail() {

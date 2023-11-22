@@ -1,15 +1,15 @@
 import { Link , useLocation, useLoaderData} from "react-router-dom"
-import { ParamTypes, VanTypes } from "../types/types"
-import { getVans } from "../api"
+import { ParamTypes, VanTypes } from "../../types/types"
+import { getVan } from "../api"
 
 export function loader({ params }: ParamTypes){
-    return getVans(params.id)
+    return getVan(params.id!)
 }
 
 export default function VanDetail() {
     const location = useLocation()
     // const [van, setVan] = useState<VanTypes | null>(null)
-    const van = useLoaderData() as VanTypes | null
+    const van = useLoaderData() as VanTypes 
 
     // useEffect(() => {
     //     fetch(`/api/vans/${params.id}`)
