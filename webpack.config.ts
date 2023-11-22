@@ -42,7 +42,7 @@ module.exports = (argv: moduleProps) => {
     resolve: { extensions: ['.js', '.ts', '.tsx', '.json'] },
     module: {
       rules: [
-        { test: /\.(ts|tsx)$/, exclude: /node_modules/, use: { loader: 'esbuild-loader', options: { loader: 'tsx', target: 'es2015', minify: isProduction } } },
+        { test: /\.(ts|tsx)$/, exclude: /node_modules/, use: { loader: 'esbuild-loader', options: { loader: 'tsx', target: 'esnext', minify: isProduction } } },
         { test: /\.(c|sa|sc)ss$/, exclude: /\.module\.(c|sa|sc)ss$/, use: ['style-loader', { loader: 'css-loader', options: { importLoaders: 1 } }, 'sass-loader', 'esbuild-loader'] },
         { test: /\.module\.(c|sa|sc)ss$/, use: ['style-loader', { loader: 'css-loader', options: { modules: true } }, 'sass-loader', 'esbuild-loader'] },
         { test: /\.(png|jpe?g|gif|svg|webp)$/i, type: 'asset/resource', generator: { filename: 'images/[name].[contenthash][ext]' } },
