@@ -2,6 +2,9 @@
 
 # Standalone React Typescript Github - Codespace
 
+Project: VanLife TSX
+Library: React + Typescript
+
 Standalone React Typescript v 1.0.6 - Webpack version
 
 version update 1.0.6
